@@ -16,7 +16,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const { message } = req.body;
 
