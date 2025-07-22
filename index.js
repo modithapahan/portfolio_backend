@@ -16,6 +16,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend is running.");
+});
+
 app.post("/", async (req, res) => {
   try {
     const { message } = req.body;
@@ -27,7 +31,8 @@ app.post("/", async (req, res) => {
 
     res.json({ reply: completion.choices[0].message.content });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 })
 
