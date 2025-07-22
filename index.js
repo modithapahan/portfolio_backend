@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "https://moditha-portfolio.vercel.app",
+    origin: ["https://moditha-portfolio.vercel.app", "http://localhost:3000"]
   })
 );
 app.use(express.json());
