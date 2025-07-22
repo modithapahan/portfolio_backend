@@ -5,7 +5,11 @@ import { OpenAI } from "openai";
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://moditha-portfolio.vercel.app/",
+  })
+);
 app.use(express.json());
 
 const openai = new OpenAI({
